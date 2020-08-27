@@ -7,7 +7,22 @@ $(document).ready(function(){
 	$('#prev').click(prevPic);
 	$('#next').click(nextPic);
 	$('#close').click(close);
+	$(document).keydown(keylistener);
 
+	function keylistener(e){
+		var keyID = e.which;
+		switch(keyID){
+			case 27:
+				close();
+				break;
+			case 37:
+				prevPic();
+				break;
+			case 39:
+				nextPic();
+				break;
+		}
+	}
 
 	function show(){
 		$('#showcase').css('visibility', 'visible');
